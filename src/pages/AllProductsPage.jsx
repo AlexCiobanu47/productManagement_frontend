@@ -6,7 +6,6 @@ const AllProductsPage = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await fetch("/api/v1/product/all");
-      console.log(response);
       const responseJson = await response.json();
       setProducts(responseJson);
     };
