@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import "./index.css";
 import AddProductPage from "./pages/AddProductPage";
 import AllProductsPage from "./pages/AllProductsPage";
 import SingleProductPage from "./pages/SingleProductPage";
