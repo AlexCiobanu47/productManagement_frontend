@@ -1,18 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import AddProduct from "./pages/AddProduct";
+import AddProductPage from "./pages/AddProductPage";
+import AllProductsPage from "./pages/AllProductsPage";
 function App() {
-  const getData = async () => {
-    const response = await fetch("/api/v1/product/all");
-    const data = await response.json();
-    console.log(data);
-  };
-  getData();
   return (
     <div className="App">
       <Routes>
-        <Route path="all" />
+        <Route path="all" element={<AllProductsPage />} />
         <Route path=":id" />
-        <Route path="add" element={<AddProduct />} />
+        <Route path="add" element={<AddProductPage />} />
       </Routes>
     </div>
   );
