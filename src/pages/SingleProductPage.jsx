@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Product from "../components/Product";
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -47,6 +47,18 @@ const SingleProductPage = () => {
     if (response.status === 200) {
       alert(title + " " + description + " " + price + " " + imageURL);
       getSingleProduct();
+    }
+  };
+  const handleDelete = async () => {
+    let response = await fetch(`/api/v1/product/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    if (response.status === 200) {
+      alert(`Deleted product with id ${id}`);
     }
   };
   useEffect(() => {
@@ -119,10 +131,18 @@ const SingleProductPage = () => {
               <div className="col-span-2 flex justify-center items-center mt-5">
                 <button
                   onClick={handleUpdate}
-                  className="border w-1/4 hover:text-green-500"
+                  className="border w-1/4 hover:text-green-500 mx-5"
                 >
                   UPDATE
                 </button>
+                <Link to="/all" className="border w-1/4 flex justify-center">
+                  <button
+                    onClick={handleDelete}
+                    className=" hover:text-red-500"
+                  >
+                    DELETE
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
