@@ -1,7 +1,6 @@
 import React from "react";
 import Product from "./Product";
 const Products = ({ data }) => {
-  console.log(data);
   return (
     <div>
       {data &&
