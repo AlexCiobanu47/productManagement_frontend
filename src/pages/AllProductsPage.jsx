@@ -12,7 +12,7 @@ const AllProductsPage = () => {
     getData();
   }, []);
   return (
-    <div id="products">
+    <div id="products" className="flex items-center justify-center">
       <Products data={products}></Products>
     </div>
   );
