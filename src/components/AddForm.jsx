@@ -48,23 +48,62 @@ const AddForm = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title"> Title: </label>
-        <input type="text" value={title} onChange={handleTitle} />
+      <form onSubmit={handleSubmit} className="m-2 grid grid-cols-2 w-96">
+        <label htmlFor="title" className="my-2">
+          Title:
+        </label>
+        <input
+          type="text"
+          value={title}
+          onChange={handleTitle}
+          className="border pl-2 my-2"
+          required
+        />
 
-        <label htmlFor=""> Description </label>
-        <input type="text" value={description} onChange={handleDescription} />
+        <label htmlFor="" className="my-2">
+          Description
+        </label>
+        <textarea
+          name=""
+          cols="30"
+          rows="10"
+          value={description}
+          onChange={handleDescription}
+          className="border pl-2 my-2"
+        ></textarea>
+        <label htmlFor="" className="my-2">
+          Price
+        </label>
+        <input
+          type="number"
+          value={price}
+          onChange={handlePrice}
+          className="border pl-2 my-2"
+        />
 
-        <label htmlFor="">Price </label>
-        <input type="number" value={price} onChange={handlePrice} />
+        <label htmlFor="" className="my-2">
+          Image URL
+        </label>
+        <input
+          type="text"
+          value={imageURL}
+          onChange={handleImageURL}
+          className="border pl-2 my-2"
+        />
 
-        <label htmlFor=""> Image URL </label>
-        <input type="text" value={imageURL} onChange={handleImageURL} />
+        <label htmlFor="" className="my-2">
+          Category
+        </label>
+        <input
+          type="text"
+          value={category}
+          onChange={handleCategory}
+          className="border pl-2 my-2"
+        />
 
-        <label htmlFor=""> Category </label>
-        <input type="text" value={category} onChange={handleCategory} />
-
-        <button type="submit">SUBMIT</button>
+        <button type="submit" className="hover:text-green-500">
+          SUBMIT
+        </button>
       </form>
     </div>
   );

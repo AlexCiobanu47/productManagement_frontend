@@ -77,12 +77,15 @@ const SingleProductPage = () => {
               <label htmlFor="" className="my-2">
                 Description:
               </label>
-              <input
-                type="text"
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
                 onChange={handleDescription}
-                defaultValue={product.description}
                 className="border pl-2 my-2"
-              />
+                defaultValue={product.description}
+              ></textarea>
               <label htmlFor="" className="my-2">
                 Price:
               </label>
