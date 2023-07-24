@@ -53,7 +53,7 @@ const SingleProductPage = () => {
     getSingleProduct();
   }, []);
   return (
-    <div>
+    <div className="m-2">
       <h1>Single product page {id}</h1>
       <div>
         {product && (
@@ -62,38 +62,62 @@ const SingleProductPage = () => {
             <p>{product.description}</p>
             <p>{product.price}</p>
             <p>{product.imageURL}</p>
-            <div>
-              <label htmlFor="">Title:</label>
+            <div className="grid grid-cols-2 w-1/2">
+              <div className="col-span-2 border-t-2"></div>
+              <h1 className="col-span-2">Edit product</h1>
+              <label htmlFor="" className="my-2">
+                Title:
+              </label>
               <input
                 type="text"
                 onChange={handleTitle}
                 defaultValue={product.title}
+                className="border pl-2 my-2"
               />
-              <label htmlFor="">Description:</label>
+              <label htmlFor="" className="my-2">
+                Description:
+              </label>
               <input
                 type="text"
                 onChange={handleDescription}
                 defaultValue={product.description}
+                className="border pl-2 my-2"
               />
-              <label htmlFor="">Price:</label>
+              <label htmlFor="" className="my-2">
+                Price:
+              </label>
               <input
                 type="number"
                 onChange={handlePrice}
                 defaultValue={product.price}
+                className="border pl-2 my-2"
               />
-              <label htmlFor="">imageURL:</label>
+              <label htmlFor="" className="my-2">
+                imageURL:
+              </label>
               <input
                 type="text"
                 onChange={handleImageURL}
                 defaultValue={product.imageURL}
+                className="border pl-2 my-2"
               />
-              <label htmlFor="">Category:</label>
+              <label htmlFor="" className="my-2">
+                Category:
+              </label>
               <input
                 type="text"
                 onChange={handleCategory}
                 defaultValue={product.category}
+                className="border pl-2 my-2"
               />
-              <button onClick={handleUpdate}>UPDATE</button>
+              <div className="col-span-2 flex justify-center items-center mt-5">
+                <button
+                  onClick={handleUpdate}
+                  className="border w-1/4 hover:text-green-500"
+                >
+                  UPDATE
+                </button>
+              </div>
             </div>
           </div>
         )}
