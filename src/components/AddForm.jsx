@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AddForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [category, setCategory] = useState("");
   const handleTitle = (event) => {
@@ -47,7 +47,6 @@ const AddForm = () => {
       setCategory("");
     }
   };
-
   const setDefaultURL = () => {
     const randomNumberInRange = (min, max) => {
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -67,30 +66,42 @@ const AddForm = () => {
           type="text"
           value={title}
           onChange={handleTitle}
-          className="border pl-2 my-2"
+          className="border pl-2 my-2 peer/title invalid:border-red-500"
+          pattern="^[a-zA-Z0-9]{3,20}$"
+          required
         />
-
+        <span className="col-span-2 hidden peer-invalid/title:inline-block text-red-500">
+          Title should be 3-20 characters long and should not contain special
+          characters
+        </span>
         <label htmlFor="" className="my-2">
           Description:
         </label>
-        <textarea
-          name=""
-          cols="30"
-          rows="10"
+        <input
+          type="text"
           value={description}
           onChange={handleDescription}
-          className="border pl-2 my-2"
-        ></textarea>
+          className="border pl-2 my-2 peer/description invalid:border-red-500"
+          pattern="^.{5,100}$"
+          required
+        ></input>
+        <span className="col-span-2 hidden peer-invalid/description:inline-block text-red-500">
+          Description should be 5-100 characters long
+        </span>
         <label htmlFor="" className="my-2">
           Price:
         </label>
         <input
-          type="number"
+          type="text"
           value={price}
           onChange={handlePrice}
-          className="border pl-2 my-2"
+          className="border pl-2 my-2 peer/price invalid:border-red-500"
+          pattern="^[0-9]{1,5}[.]?[0-9]{0,2}$"
+          required
         />
-
+        <span className="col-span-2 hidden peer-invalid/price:inline-block text-red-500">
+          Price should be 1-5 characters long with optional 2 decimals
+        </span>
         <label htmlFor="" className="my-2">
           Image URL:{" "}
           <button className="border" onClick={setDefaultURL}>
@@ -101,9 +112,13 @@ const AddForm = () => {
           type="text"
           value={imageURL}
           onChange={handleImageURL}
-          className="border pl-2 my-2"
+          className="border pl-2 my-2 peer/url invalid:border-red-500"
+          pattern="(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?"
+          required
         />
-
+        <span className="col-span-2 hidden peer-invalid/url:inline-block text-red-500">
+          Enter a valid URL
+        </span>
         <label htmlFor="" className="my-2">
           Category:
         </label>
@@ -111,19 +126,17 @@ const AddForm = () => {
           type="text"
           value={category}
           onChange={handleCategory}
-          className="border pl-2 my-2"
+          className="border pl-2 my-2 peer/category invalid:border-red-500"
+          pattern="^[a-zA-Z0-9]{3,20}$"
+          required
         />
-        <div className="col-span-2 flex justify-center">
-          <button className="border rounded-lg text-gray-500 px-3 py-1 mx-5">
-            <Link to="/all">CANCEL</Link>
-          </button>
-          <button
-            type="submit"
-            className="bg-purple-700 text-white rounded-lg px-3 py-1 mx-5"
-          >
-            SUBMIT
-          </button>
-        </div>
+        <span className="col-span-2 hidden peer-invalid/category:inline-block text-red-500">
+          Category should be 3-20 characters long and should not contain special
+          characters
+        </span>
+        <button type="submit" className="hover:text-green-500">
+          SUBMIT
+        </button>
       </form>
     </div>
   );
