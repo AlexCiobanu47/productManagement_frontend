@@ -70,15 +70,15 @@ const SingleProductPage = () => {
       <div>
         {product && (
           <div className="flex flex-col items-center">
-            <div className="flex-1">
+            <div className="flex-1 border border-gray-400 p-5 rounded-lg">
               <h1>Title: {product.title}</h1>
               <p>Description: {product.description}</p>
               <p>Price: {product.price}</p>
               <p>Image URL: {product.imageURL}</p>
+              <p>Category: {product.category}</p>
               <img src={product.imageURL} alt="" />
-              <div className="border-b-4 my-5"></div>
             </div>
-            <div className="grid grid-cols-2  flex-1 w-full">
+            <div className="grid grid-cols-2  flex-1 w-full border border-gray-400 my-5 p-5 rounded-lg">
               <h1 className="col-span-2 my-5 text-center">Edit product</h1>
               <label htmlFor="" className="my-2">
                 Title:
@@ -131,15 +131,15 @@ const SingleProductPage = () => {
               <div className="col-span-2 flex justify-center items-center mt-5">
                 <button
                   onClick={handleUpdate}
-                  className="border w-1/4 hover:text-green-500 mx-5"
+                  className="w-1/4 bg-green-500 text-white rounded-lg mx-5"
                 >
                   UPDATE
                 </button>
-                <Link to="/all" className="border w-1/4 flex justify-center">
-                  <button
-                    onClick={handleDelete}
-                    className=" hover:text-red-500"
-                  >
+                <Link
+                  to="/all"
+                  className="w-1/4 flex justify-center bg-red-500 text-white rounded-lg"
+                >
+                  <button onClick={handleDelete} className="">
                     DELETE
                   </button>
                 </Link>

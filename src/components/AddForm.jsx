@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const AddForm = () => {
   const [title, setTitle] = useState("");
@@ -67,7 +68,6 @@ const AddForm = () => {
           value={title}
           onChange={handleTitle}
           className="border pl-2 my-2"
-          required
         />
 
         <label htmlFor="" className="my-2">
@@ -80,7 +80,6 @@ const AddForm = () => {
           value={description}
           onChange={handleDescription}
           className="border pl-2 my-2"
-          required
         ></textarea>
         <label htmlFor="" className="my-2">
           Price:
@@ -90,7 +89,6 @@ const AddForm = () => {
           value={price}
           onChange={handlePrice}
           className="border pl-2 my-2"
-          required
         />
 
         <label htmlFor="" className="my-2">
@@ -104,7 +102,6 @@ const AddForm = () => {
           value={imageURL}
           onChange={handleImageURL}
           className="border pl-2 my-2"
-          required
         />
 
         <label htmlFor="" className="my-2">
@@ -115,12 +112,18 @@ const AddForm = () => {
           value={category}
           onChange={handleCategory}
           className="border pl-2 my-2"
-          required
         />
-
-        <button type="submit" className="hover:text-green-500">
-          SUBMIT
-        </button>
+        <div className="col-span-2 flex justify-center">
+          <button className="border rounded-lg text-gray-500 px-3 py-1 mx-5">
+            <Link to="/all">CANCEL</Link>
+          </button>
+          <button
+            type="submit"
+            className="bg-purple-700 text-white rounded-lg px-3 py-1 mx-5"
+          >
+            SUBMIT
+          </button>
+        </div>
       </form>
     </div>
   );
