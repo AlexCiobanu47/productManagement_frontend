@@ -103,7 +103,7 @@ const AddForm = () => {
           Price should be 1-5 characters long with optional 2 decimals
         </span>
         <label htmlFor="" className="my-2">
-          Image URL:{" "}
+          Image URL:
           <button className="border" onClick={setDefaultURL}>
             Use default
           </button>
@@ -113,7 +113,7 @@ const AddForm = () => {
           value={imageURL}
           onChange={handleImageURL}
           className="border pl-2 my-2 peer/url invalid:border-red-500"
-          pattern="(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?"
+          pattern=".{3,}"
           required
         />
         <span className="col-span-2 hidden peer-invalid/url:inline-block text-red-500">
@@ -134,9 +134,14 @@ const AddForm = () => {
           Category should be 3-20 characters long and should not contain special
           characters
         </span>
-        <button type="submit" className="hover:text-green-500">
-          SUBMIT
-        </button>
+        <div className="col-span-2 my-10 flex justify-center">
+          <button className="bg-red-400 text-white p-1 mx-5 rounded-md">
+            <Link to="/all">CANCEL</Link>
+          </button>
+          <button type="submit" className=" p-1 mx-5 rounded-md bg-green-400">
+            SUBMIT
+          </button>
+        </div>
       </form>
     </div>
   );
