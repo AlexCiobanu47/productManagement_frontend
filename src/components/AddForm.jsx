@@ -185,6 +185,7 @@ const AddForm = () => {
         isDisplayed={displayModal}
         handleNo={handleModal}
         redirectYes="/all"
+        text="Are you sure you want to cancel?"
       />
     </div>
   );

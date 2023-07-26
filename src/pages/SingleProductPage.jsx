@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Modal from "../components/Modal";
 import Product from "../components/Product";
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -9,6 +10,7 @@ const SingleProductPage = () => {
   const [price, setPrice] = useState();
   const [imageURL, setImageURL] = useState();
   const [category, setCategory] = useState();
+  const [showModal, setShowModal] = useState(false);
   const getSingleProduct = async () => {
     const response = await fetch(`/api/v1/product/${id}`);
     const responseJson = await response.json();
@@ -28,6 +30,9 @@ const SingleProductPage = () => {
   };
   const handleCategory = (event) => {
     setCategory(event.target.value);
+  };
+  const handleModal = () => {
+    setShowModal(~showModal);
   };
   const handleUpdate = async () => {
     let response = await fetch(`/api/v1/product/${id}`, {
@@ -135,19 +140,23 @@ const SingleProductPage = () => {
                 >
                   UPDATE
                 </button>
-                <Link
-                  to="/all"
+                <button
+                  onClick={handleModal}
                   className="w-1/4 flex justify-center bg-red-500 text-white rounded-lg"
                 >
-                  <button onClick={handleDelete} className="">
-                    DELETE
-                  </button>
-                </Link>
+                  DELETE
+                </button>
               </div>
             </div>
           </div>
         )}
       </div>
+      <Modal
+        text="Are you sure you want to delete this product?"
+        isDisplayed={showModal}
+        handleNo={handleDelete}
+        redirectYes="/all"
+      ></Modal>
     </div>
   );
 };

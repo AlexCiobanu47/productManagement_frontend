@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Modal = ({ isDisplayed, handleNo, redirectYes }) => {
+const Modal = ({ isDisplayed, handleNo, redirectYes, text }) => {
   return (
     <div className="flex justify-center items-center">
       {isDisplayed ? (
         <div className="flex flex-col justify-center items-center z-50 top-14 fixed w-1/2 h-1/2 bg-gray-500">
-          <h1>Are you sure you want to cancel?</h1>
+          <h1>{text}</h1>
           <div className="flex justify-between items-center">
             <button
               className="mx-5 p-2 rounded-lg bg-red-500 text-white"
