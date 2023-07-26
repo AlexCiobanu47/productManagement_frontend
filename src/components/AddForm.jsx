@@ -67,7 +67,7 @@ const AddForm = () => {
           value={title}
           onChange={handleTitle}
           className="border pl-2 my-2 peer/title invalid:border-red-500"
-          pattern="^[a-zA-Z0-9]{3,20}$"
+          pattern="^[a-zA-Z0-9|[S]]{3,20}$"
           required
         />
         <span className="col-span-2 hidden peer-invalid/title:inline-block text-red-500">
